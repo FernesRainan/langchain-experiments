@@ -74,7 +74,7 @@ print(result)
 # Memory: Add State to Chains and Agents
 # --------------------------------------------------------------
 
-llm = OpenAI()
+llm = OpenAI(model_name="text-ada-001")
 conversation = ConversationChain(llm=llm, verbose=True)
 
 output = conversation.predict(input="Hi there!")
