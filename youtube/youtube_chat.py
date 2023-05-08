@@ -1,3 +1,4 @@
+# %%
 from langchain.document_loaders import YoutubeLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -12,9 +13,9 @@ from langchain.prompts.chat import (
 )
 import textwrap
 
+# %%
 load_dotenv(find_dotenv())
 embeddings = OpenAIEmbeddings()
-
 
 def create_db_from_youtube_video_url(video_url):
     loader = YoutubeLoader.from_youtube_url(video_url)
@@ -66,11 +67,15 @@ def get_response_from_query(db, query, k=4):
     response = response.replace("\n", "")
     return response, docs
 
+# %%
 
 # Example usage:
 video_url = "https://www.youtube.com/watch?v=L_Guz73e6fw"
 db = create_db_from_youtube_video_url(video_url)
 
+# %%
 query = "What are they saying about Microsoft?"
 response, docs = get_response_from_query(db, query)
 print(textwrap.fill(response, width=50))
+
+# %%
