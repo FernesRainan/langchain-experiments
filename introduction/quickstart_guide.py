@@ -1,3 +1,4 @@
+# %%
 from dotenv import find_dotenv, load_dotenv
 from langchain.llms import OpenAI
 from langchain import PromptTemplate
@@ -8,6 +9,7 @@ from langchain.agents import AgentType
 from langchain.agents.load_tools import get_all_tool_names
 from langchain import ConversationChain
 
+# %%
 # Load environment variables
 load_dotenv(find_dotenv())
 
@@ -15,11 +17,11 @@ load_dotenv(find_dotenv())
 # LLMs: Get predictions from a language model
 # --------------------------------------------------------------
 
-llm = OpenAI(model_name="text-davinci-003")
+llm = OpenAI(model_name="text-ada-001")
 prompt = "Write a poem about python and ai"
 print(llm(prompt))
 
-
+# %%
 # --------------------------------------------------------------
 # Prompt Templates: Manage prompts for LLMs
 # --------------------------------------------------------------
@@ -31,6 +33,7 @@ prompt = PromptTemplate(
 
 prompt.format(product="Smart Apps using Large Language Models (LLMs)")
 
+# %%
 # --------------------------------------------------------------
 # Chains: Combine LLMs and prompts in multi-step workflows
 # --------------------------------------------------------------
@@ -45,10 +48,10 @@ chain = LLMChain(llm=llm, prompt=prompt)
 print(chain.run("AI Chatbots for Dental Offices"))
 
 
+# %%
 # --------------------------------------------------------------
 # Agents: Dynamically Call Chains Based on User Input
 # --------------------------------------------------------------
-
 
 llm = OpenAI()
 
@@ -66,7 +69,7 @@ result = agent.run(
 )
 print(result)
 
-
+# %%
 # --------------------------------------------------------------
 # Memory: Add State to Chains and Agents
 # --------------------------------------------------------------
